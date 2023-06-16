@@ -18,6 +18,28 @@ public class AileButcemPage {
     }
     @FindBy(xpath = "//*[@text='Giriş Yap']")
     public MobileElement girisYapButton;
+    @FindBy(xpath = "//*[@text='E-mail Adresi']")
+    public MobileElement Email_AdresiButton;
+    @FindBy(xpath = "//*[@text='Şifre']")
+    public MobileElement sifreButton;
+    @FindBy(xpath = "//*[@text='Başarılı']")
+    public MobileElement basariliYazisi;
+
+    @FindBy(xpath = "(//*[@class='android.widget.ImageView'])[1]")
+    public MobileElement menuButton;
+
+    @FindBy(xpath = "//*[@text='Hesabım']")
+    public MobileElement hesabim;
+
+    @FindBy(xpath = "(//*[@class='android.widget.EditText'])[1]")
+    public MobileElement isimYazisi;
+    @FindBy(xpath = "(//*[@class='android.widget.EditText'])[2]")
+    public MobileElement soyisimYazisi;
+    @FindBy(xpath = "(//*[@class='android.widget.EditText'])[5]")
+    public MobileElement meslekYazisi;
+    @FindBy(xpath = "//*[@text='Kaydet']")
+    public MobileElement kaydet;
+
 
 
 
