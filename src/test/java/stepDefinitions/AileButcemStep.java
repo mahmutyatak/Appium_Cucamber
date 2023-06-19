@@ -58,9 +58,9 @@ AileButcemPage aileButcemPage=new AileButcemPage();
     @Then("hesabim sayfasindaki bilgileri degistirerek degisikleri kaydedin")
     public void hesabim_sayfasindaki_bilgileri_degistirerek_degisikleri_kaydedin() {
         aileButcemPage.isimYazisi.clear();
-        aileButcemPage.isimYazisi.sendKeys("furkan");
+        aileButcemPage.isimYazisi.sendKeys("Yusuf");
         aileButcemPage.soyisimYazisi.clear();
-        aileButcemPage.soyisimYazisi.sendKeys("kral");
+        aileButcemPage.soyisimYazisi.sendKeys("Kral");
         aileButcemPage.meslekYazisi.clear();
         aileButcemPage.meslekYazisi.sendKeys("the king in the north");
         aileButcemPage.kaydet.click();
