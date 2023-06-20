@@ -9,3 +9,4 @@ Feature:ailebutcem login page test
     Then sol kisimdaki menuden hesabim bolumune gidin
     Then hesabim sayfasindaki bilgileri degistirerek degisikleri kaydedin
     And ardindan degisiklerin yapildigini dogrulayin
+    And Uygulama kapatilir

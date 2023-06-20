@@ -1,12 +1,16 @@
 package stepDefinitions;
 
+import com.github.javafaker.Faker;
+import com.google.common.util.concurrent.FakeTimeLimiter;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.aspectj.weaver.bcel.FakeAnnotation;
 import org.junit.Assert;
 import pages.AileButcemPage;
 import utils.ConfigReader;
@@ -57,12 +61,13 @@ AileButcemPage aileButcemPage=new AileButcemPage();
     }
     @Then("hesabim sayfasindaki bilgileri degistirerek degisikleri kaydedin")
     public void hesabim_sayfasindaki_bilgileri_degistirerek_degisikleri_kaydedin() {
+        Faker faker=new Faker();
         aileButcemPage.isimYazisi.clear();
-        aileButcemPage.isimYazisi.sendKeys("Yusuf");
+        aileButcemPage.isimYazisi.sendKeys(faker.name().firstName());
         aileButcemPage.soyisimYazisi.clear();
-        aileButcemPage.soyisimYazisi.sendKeys("Kral");
+        aileButcemPage.soyisimYazisi.sendKeys(faker.name().lastName());
         aileButcemPage.meslekYazisi.clear();
-        aileButcemPage.meslekYazisi.sendKeys("the king in the north");
+        aileButcemPage.meslekYazisi.sendKeys(faker.job().position());
         aileButcemPage.kaydet.click();
 
     }
@@ -72,8 +77,12 @@ AileButcemPage aileButcemPage=new AileButcemPage();
         String actual=aileButcemPage.basariliYazisi.getText();
         System.out.println(actual);
         Assert.assertEquals("basariszi giris",expected,actual);
+
+    }
+
+    @And("Uygulama kapatilir")
+    public void uygulamaKapatilir() {
         ReausableMethods.wait(3);
         driver.closeApp();
-
     }
 }
