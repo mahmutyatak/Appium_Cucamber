@@ -16,6 +16,8 @@ public class AmazonPage {
     public WebElement searchbox;
     @FindBy(xpath = "(//div[@class='sg-row'])[3]")
     public WebElement ilkurun;
+    @FindBy(xpath = "(//span[@class='nav-ftr-text'])[10]")
+    public WebElement musteriHzimetleri;
 
 
 }

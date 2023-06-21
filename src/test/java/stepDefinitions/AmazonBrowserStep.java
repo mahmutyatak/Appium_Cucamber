@@ -1,8 +1,11 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import pages.AmazonPage;
 import utils.BrowserDriver;
 import utils.ReausableMethods;
@@ -19,6 +22,16 @@ AmazonPage amazonPage=new AmazonPage();
     @Then("Kullanici arama kutusunda {string} aratir")
     public void kullaniciAramaKutusundaAratir(String aranacakKleime) {
        amazonPage.searchbox.sendKeys(aranacakKleime, Keys.ENTER);
-       amazonPage.ilkurun.click();
+       Actions actions=new Actions(BrowserDriver.getBrowserDriver());
+       //actions.sendKeys(Keys.PAGE_DOWN); BUNU Bİ DENEYELİM.
+     ReausableMethods.scrollToElement(amazonPage.musteriHzimetleri);
+     ReausableMethods.wait(8);
+     amazonPage.musteriHzimetleri.click();
+
+    }
+
+    @And("Kullanici sayfayi kapatir")
+    public void kullaniciSayfayiKapatir() {
+        BrowserDriver.quitAppiumDriver();
     }
 }

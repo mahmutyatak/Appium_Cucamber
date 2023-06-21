@@ -2,8 +2,10 @@ package utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,6 +41,11 @@ public class ReausableMethods {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public static void scrollToElement(WebElement element){
+
+        JavascriptExecutor jse= (JavascriptExecutor) BrowserDriver.getBrowserDriver();
+        jse.executeScript("arguments[0].scrollIntoView();",element);
     }
 
 }
